@@ -1,0 +1,46 @@
+﻿@using WebMVC.Areas.Admin.Models
+
+
+@model List<User>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<table class="table table-active table-bordered table-hover">
+    <thead>
+        <tr>
+            <td><d>Id</d></td>
+            <td><d>Имя</d></td>
+            <td><d>Электронная почта</d></td>
+            <td><d>Пароль</d></td>
+            <td><d>Потвердите пароль</d></td>
+            <td> <a asp-action="Add" asp-controller="User" class="btn btn-sm btn-success" >
+                Добавить
+            </a> </td>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Name</td>
+                <td>@x.Email</td>
+                <td>@x.Password</td>
+                <td>@x.ConfirmPassword</td>
+               
+
+                <td><a class="btn btn-warning" asp-action="Edit" asp-controller="User" asp-route-id="@x.Id" id="Edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Изменить
+                    </a></td>
+                <td><a class="btn btn-danger" asp-action="Delete" asp-controller="User" asp-route-id="@x.Id" id="Delete">
+                    Сбросить
+                    </a></td>
+            </tr>
+        }
+    </tbody>
+</table>

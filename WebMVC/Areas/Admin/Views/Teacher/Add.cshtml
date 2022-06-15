@@ -1,0 +1,46 @@
+﻿@model WebMVC.Areas.Admin.ModelDTO.TeacherDTO
+<h3>Добавление</h3>
+<form asp-action="Add" asp-controller="Teacher" asp-antiforgery="true" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+
+        <div class="form-group">
+            <label asp-for="FirstName"><b>Имя</b></label>
+            <input type="text" asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName"><b>Фамилия</b></label>
+            <input type="text" asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName"></span>
+        </div>     
+         <div class="form-group">
+            <label asp-for="PhoneNumber"><b>Телефон</b></label>
+            <input type="text" asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>     
+         <div class="form-group">
+            <label asp-for="Email"><b>Электронная почта</b></label>
+            <input type="text" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </div>     
+
+       
+        <div class="form-group">
+             <label asp-for="Image"><b>Фото препода</b></label>
+             <input type="file" name="file" id="file" class="form-control" accept="application" />
+             <span asp-validation-for="Image"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Birthday"><b>Дата рождения</b></label>
+            <input type="datetime" asp-for="Birthday" class="form-control" />
+            <span asp-validation-for="Birthday"></span>
+        </div>
+        <div class="form-group" >
+            <input  type="submit" value="Добавить" class="form-control btn" />
+        </div>
+    </div>
+</form>

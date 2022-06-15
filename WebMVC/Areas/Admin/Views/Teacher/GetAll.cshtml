@@ -1,0 +1,51 @@
+﻿@using WebMVC.Areas.Admin.ModelDTO
+
+
+@model List<TeacherDTO>
+@{
+    ViewData["Title"] = "Teachers";
+}
+
+<table class="table table-active table-bordered table-hover">
+    <thead>
+        <tr>
+            <td><d>Id</d></td>
+            <td><d>Имя</d></td>
+            <td><d>Фамилия</d></td>
+            <td><d>Телефон</d></td>
+            <td><d>Электронная почта</d></td>
+            <td><d>Фото</d></td>
+            <td><d>Дата рождения</d></td>
+            <td> <a asp-action="Add" asp-controller="Teacher" class="btn btn-sm btn-success">
+               Добавить
+            </a> </td>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.FirstName</td>
+                <td>@x.LastName</td>
+                <td>@x.PhoneNumber</td>
+                <td>@x.Email</td>
+                <td><img width="100" height="100" src="@x.Image" alt="Photo" accept="application" /></td>
+                <td>@x.Birthday</td>
+
+                <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-controller="Teacher" asp-route-id="@x.Id" id="Edit">
+                        Изменить
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Teacher" asp-route-id="@x.Id" id="Delete">
+                        Удалить
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
